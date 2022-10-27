@@ -1,0 +1,35 @@
+package nes;
+
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Task4 {
+	public static void main(String[] args)
+		throws java.io.UnsupportedEncodingException
+	{
+		Scanner s = new Scanner(System.in);
+		PrintStream ps = new PrintStream(System.out, true, "UTF-8");
+		ArrayList<Integer> num = new ArrayList<Integer>();
+		String pr = ")";
+		while (true) {
+			pr = s.nextLine();
+			if (pr.equals(""))
+				break;
+			num.add(Integer.parseInt(pr));
+		}
+		if (asAvgWhole(num))
+			ps.print("true");
+		else
+			ps.print("false");
+	}
+	public static boolean asAvgWhole(ArrayList<Integer>a) {
+		double result = 0;
+		for (int i = 0; i < a.size(); i++)
+			result += a.get(i);
+		result /= a.size();
+		if (result%1 == 0.0)
+			return true;
+		return false;
+	}
+}
